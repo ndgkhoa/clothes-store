@@ -1,4 +1,4 @@
-import { getProducts } from '@/lib/action'
+import { getProducts } from '@/lib/actions'
 import ProductCard from './ProductCard'
 
 const ProductList = async () => {
