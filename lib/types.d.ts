@@ -23,8 +23,7 @@ type ProductType = {
 
 type UserType = {
     clerkId: string
-    wishlist: [string]
-    orders: [string]
+    wishList: [string]
     createdAt: string
     updatedAt: string
 }
