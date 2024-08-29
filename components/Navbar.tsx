@@ -5,9 +5,11 @@ import Link from 'next/link'
 import { CircleUserRound, Menu, ShoppingCart } from 'lucide-react'
 import { UserButton, useUser } from '@clerk/nextjs'
 import { useState } from 'react'
+import useCart from '@/lib/hooks/useCart'
 
 const Navbar = () => {
     const { isSignedIn } = useUser()
+    const cart = useCart()
     const [dropdownMenu, setDropdownMenu] = useState(false)
 
     return (
@@ -26,10 +28,17 @@ const Navbar = () => {
                     className="flex items-center gap-3 border rounded-lg px-2 py-1 hover:bg-black hover:text-white"
                 >
                     <ShoppingCart />
-                    <p className="text-base-bold">Cart (0)</p>
+                    <p className="text-base-bold">
+                        Cart ({cart.cartItems.length})
+                    </p>
                 </Link>
 
-                {isSignedIn && <Menu className="cursor-pointer" onClick={() => setDropdownMenu(!dropdownMenu)} />}
+                {isSignedIn && (
+                    <Menu
+                        className="cursor-pointer"
+                        onClick={() => setDropdownMenu(!dropdownMenu)}
+                    />
+                )}
 
                 {isSignedIn && dropdownMenu && (
                     <div className="absolute top-10 right-5 flex flex-col gap-2 p-3 rounded-lg border bg-white text-base-bold">
