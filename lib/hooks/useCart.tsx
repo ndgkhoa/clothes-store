@@ -64,7 +64,7 @@ const useCart = create(
                 set({ cartItems: newCartItems })
                 toast.success('Item quantity decreased')
             },
-            clearCart: () => ({ cartItems: [] }),
+            clearCart: () => set({ cartItems: [] }),
         }),
         {
             name: 'cart-storage',
