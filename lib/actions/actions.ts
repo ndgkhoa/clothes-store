@@ -37,3 +37,18 @@ export const getOrders = async (customerId: string) => {
     )
     return await orders.json()
 }
+
+export const getRelatedProducts = async (productId: string) => {
+    const response = await fetch(
+        `${process.env.NEXT_PUBLIC_API_URL}/products/${productId}/related`,
+    )
+    const relatedProducts = await response.json()
+
+    if (relatedProducts.length > 4) {
+        const shuffledProducts = relatedProducts.sort(() => 0.5 - Math.random())
+
+        return shuffledProducts.slice(0, 4)
+    }
+
+    return relatedProducts
+}

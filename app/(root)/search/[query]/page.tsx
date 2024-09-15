@@ -15,7 +15,7 @@ const SearchPage = async ({ params }: { params: { query: string } }) => {
                 (searchedProducts.length === 0 && (
                     <p className="text-body-bold my-5">No result found</p>
                 ))}
-            <div className="flex flex-wrap justify-between gap-16">
+            <div className="flex flex-wrap justify-center gap-16">
                 {searchedProducts?.map((product: any) => (
                     <ProductCard key={product._id} product={product} />
                 ))}
@@ -25,3 +25,5 @@ const SearchPage = async ({ params }: { params: { query: string } }) => {
 }
 
 export default SearchPage
+
+export const dynamic = 'force-dynamic'
