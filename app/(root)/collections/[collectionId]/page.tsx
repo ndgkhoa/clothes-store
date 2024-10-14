@@ -34,7 +34,7 @@ const CollectionDetails = ({
     }, [params.collectionId])
     if (!collectionDetails) return <Loader />
     return (
-        <div className="px-10 py-5  flex flex-col items-center gap-8">
+        <div className="px-10 py-5 flex flex-col items-center gap-8">
             <Image
                 src={collectionDetails.image}
                 width={1500}
@@ -48,7 +48,7 @@ const CollectionDetails = ({
             <p className="text-body-normal text-grey-2 text-center max-w-[900px]">
                 {collectionDetails.description}
             </p>
-            <div className="flex flex-wrap gap-18 mx-auto">
+            <div className="flex flex-wrap gap-8 mx-auto">
                 {collectionDetails.products.map((product: ProductType) => (
                     <ProductCard key={product._id} product={product} />
                 ))}

@@ -17,6 +17,13 @@ export const getProducts = async () => {
     return await products.json()
 }
 
+export const getHomeProducts = async () => {
+    const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/products`)
+    const products = await response.json()
+    const shuffledProducts = products.sort(() => 0.5 - Math.random())
+    return shuffledProducts.slice(0, 12)
+}
+
 export const getProductDetails = async (productId: string) => {
     const product = await fetch(
         `${process.env.NEXT_PUBLIC_API_URL}/products/${productId}`,
