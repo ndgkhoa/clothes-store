@@ -4,7 +4,7 @@ import { FaFacebook, FaInstagram, FaTwitter, FaLinkedin } from 'react-icons/fa'
 const Footer: React.FC = () => {
     return (
         <footer className="bg-gray-800 text-white py-10">
-            <div className="container mx-auto grid grid-cols-1 md:grid-cols-3 gap-8 px-4">
+            <div className="container mx-auto grid grid-cols-1 md:grid-cols-4 gap-8 px-4">
                 <div className="flex flex-col">
                     <h3 className="text-lg font-semibold mb-3">Contact Us</h3>
                     <p>123 Main Street, Suite 100</p>
@@ -36,6 +36,34 @@ const Footer: React.FC = () => {
                         <li>
                             <a href="/privacy" className="hover:underline">
                                 Privacy Policy
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div className="flex flex-col">
+                    <h3 className="text-lg font-semibold mb-3">
+                        Customer Service
+                    </h3>
+                    <ul className="space-y-2">
+                        <li>
+                            <a href="/faq" className="hover:underline">
+                                FAQ
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/returns" className="hover:underline">
+                                Returns
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/shipping" className="hover:underline">
+                                Shipping Info
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/support" className="hover:underline">
+                                Support
                             </a>
                         </li>
                     </ul>

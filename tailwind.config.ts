@@ -57,6 +57,13 @@ const config: Config = {
                     fontWeight: '500',
                 },
             ],
+            'large-bold': [
+                '22px',
+                {
+                    lineHeight: '120%',
+                    fontWeight: '550',
+                },
+            ],
             'base-bold': [
                 '16px',
                 {

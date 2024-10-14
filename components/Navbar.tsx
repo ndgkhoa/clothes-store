@@ -19,10 +19,24 @@ const Navbar = () => {
     return (
         <div className="sticky top-0 z-10 py-2 px-10 flex gap-2 justify-between items-center bg-white max-sm:px-2">
             <Link href="/">
-                <Image src="/logo.png" alt="logo" width={180} height={100} />
+                <div
+                    className="relative 
+                   w-[120px] h-[40px] 
+                   sm:w-[140px] sm:h-[45px] 
+                   md:w-[160px] md:h-[50px] 
+                   lg:w-[180px] lg:h-[55px]"
+                >
+                    <Image
+                        src="/logo.png"
+                        alt="logo"
+                        fill
+                        className="object-contain"
+                        priority
+                    />
+                </div>
             </Link>
 
-            <div className="flex gap-4 text-base-bold max-lg:hidden">
+            <div className="flex text-large-bold max-lg:hidden gap-8">
                 <Link
                     href="/"
                     className={`hover:text-blue-1 ${pathname === '/' && 'text-blue-1'}`}

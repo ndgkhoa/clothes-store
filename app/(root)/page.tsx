@@ -4,24 +4,13 @@ import Collections from '@/components/Collections'
 import ProductList from '@/components/ProductList'
 import Image from 'next/image'
 import { useEffect, useState } from 'react'
-import { getCollections, getProducts } from '@/lib/actions/actions'
+import { getCollections, getHomeProducts } from '@/lib/actions/actions'
 import Loader from '@/components/Loader'
 
 export default function Home() {
     const [collections, setCollections] = useState<CollectionType[]>([])
     const [products, setProducts] = useState<ProductType[]>([])
     const [loading, setLoading] = useState(true)
-
-    const getHomeProducts = async () => {
-        const response = await fetch(
-            `${process.env.NEXT_PUBLIC_API_URL}/products`,
-        )
-        const products = await response.json()
-
-        const shuffledProducts = products.sort(() => 0.5 - Math.random())
-
-        return shuffledProducts.slice(0, 12)
-    }
 
     const fetchData = async () => {
         try {
@@ -42,9 +31,7 @@ export default function Home() {
         fetchData()
     }, [])
 
-    return loading ? (
-        <Loader />
-    ) : (
+    return (
         <>
             <Image
                 src="/banner.jpg"
@@ -53,8 +40,14 @@ export default function Home() {
                 height={1000}
                 className="w-screen"
             />
-            <Collections collections={collections} />
-            <ProductList products={products} />
+            {loading ? (
+                <Loader />
+            ) : (
+                <>
+                    <Collections collections={collections} />
+                    <ProductList products={products} />
+                </>
+            )}
         </>
     )
 }
